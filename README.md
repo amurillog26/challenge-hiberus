@@ -7,7 +7,7 @@ Para compilar nuestro micro te adjuntamos el Dockerfile necesario y los ficheros
 solamente necesitaras seguir las siguientes instrucciones
 
 ```
-git clone git@github.com:pps-ciberseguridad/microservicio.git
+git clone [git@github.com:pps-ciberseguridad/microservicio.git](https://github.com/pps-ciberseguridad/microservicio.git)
 
 docker build -t myapp:1.0 .
 ```
