@@ -15,11 +15,11 @@ para arrancar el Microservicio necesitas tener una mysql:5.7
 
 las variables que espera nuestro microservicio son las siguientes:
 ```
-      - DB_HOST= el host de la mysql
-      - DB_USER= usuario de la mysql
-      - DB_PASSWORD= contraseña del usuario
-      - DB_NAME= nobre de la database
-      - DB_PORT= puerto de la mysql
+      - MYSQLDB_HOST= el host de la mysql
+      - MYSQLDB_USER= usuario de la mysql
+      - MYSQLDB_PASSWORD= contraseña del usuario
+      - MYSQLDB_NAME= nobre de la database
+      - MYSQLDB_PORT= puerto de la mysql
 ```
 Nuestro microservicio es tan inteligente que no necesita importar ninguna bbdd por lo que no te tienes que preocupar en importar datos de la base de datos.
 
