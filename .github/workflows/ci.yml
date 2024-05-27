@@ -11,6 +11,9 @@ on:
       - feature/*
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write   
 
 jobs:
   test:
