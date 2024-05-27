@@ -11,10 +11,6 @@ on:
       - feature/*
   workflow_dispatch:
 
-permissions:
-  contents: write
-  pages: write   
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -40,6 +36,9 @@ jobs:
   release:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: write
+      pages: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
