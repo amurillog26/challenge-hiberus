@@ -9,7 +9,7 @@
     "start": "node src/index.js",
     "test": "jest",
     "lint": "eslint .",
-    "prepare": "husky",
+    "prepare": "husky install",
     "commit": "cz"
   },
   "config": {
