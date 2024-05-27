@@ -80,6 +80,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
+          repository: amurillog26/challenge-hiberus-helm
           directory: helm
           commit_message: "Update image tag to ${{ env.GIT_SHA }}"
       # - name: Commit and push changes
