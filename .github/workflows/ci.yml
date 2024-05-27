@@ -75,11 +75,11 @@ jobs:
           sed -i 's/tag: ".*"/tag: "${{ env.GIT_SHA }}"/' values.yaml
 
       - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           cd helm-charts
           git config --global user.name "amurillog26"
           git add .
           git commit -m "Update image tag to ${{ env.GIT_SHA }}"
           git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
