@@ -66,6 +66,7 @@ jobs:
 
       - name: Update Helm values
         run: |
+          ls
           cd challenge-hiberus-helm
           sed -i 's/tag: ".*"/tag: "${{ env.GIT_SHA }}"/' values.yaml
 
