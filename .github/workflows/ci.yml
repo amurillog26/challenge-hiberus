@@ -4,15 +4,16 @@ on:
   push:
     branches:
       - main
+      - feature/*
   pull_request:
     branches:
       - main
-  workflow_dispatch:
+      - feature/*
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-
+    if: github.event_name == 'pull_request'
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -20,39 +21,42 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '20'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run tests
+        run: yarn test
+
+      - name: Run Lint
+        run: yarn lint
+
+  release:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Run lint
-        run: npm lint
-
-      - name: Run tests
-        run: npm test
-
       - name: Semantic Release
-        id: semantic
         env:
-          GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
 
       - name: Build Docker image
-        if: steps.semantic.outputs.new_release_published == 'true'
         run: |
-          VERSION=$(cat package.json | jq -r .version)
-          docker build -t amurillog/myapp:$VERSION .
+          VERSION=$(npx semantic-release --dry-run | grep 'Next release version' | awk '{print $4}')
+          docker build -t my-docker-repo/myapp:$VERSION .
           echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-          docker tag amurillog/myapp:$VERSION amurillog/myapp:latest
-          docker push amurillog/myapp:$VERSION
-          docker push amurillog/myapp:latest
-
-      - name: Trigger Helm Chart Update
-        if: steps.semantic.outputs.new_release_published == 'true'
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          repository: amurillog26/helm-charts
-          event-type: update-charts
-          client-payload: '{"image_tag": "${{ steps.semantic.outputs.new_release_version }}"}'
+          docker push my-docker-repo/myapp:$VERSION
