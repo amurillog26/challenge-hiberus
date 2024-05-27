@@ -1,0 +1,28 @@
+# 1.0.0 (2024-05-27)
+
+
+### Features
+
+* agregar configuración de commit linting ([3a57f19](https://github.com/amurillog26/challenge-hiberus/commit/3a57f19f03fb7c7dbc3d26a867e8b95717d68106))
+* agregar configuración de commit linting ([04a664c](https://github.com/amurillog26/challenge-hiberus/commit/04a664cc18fdfa3728096c269411ff1e5c053416))
+* agregar configuración de commit linting ([50b9162](https://github.com/amurillog26/challenge-hiberus/commit/50b916284429c0380e41c041ea521fb500c5412f))
+* agregar configuración de docker compose ([481c896](https://github.com/amurillog26/challenge-hiberus/commit/481c8961f702953fee4e1c1ff1b1558960349d4c))
+* enable workflow ([d031936](https://github.com/amurillog26/challenge-hiberus/commit/d0319368297eb3b50df42c6fa8d4c1966b484ade))
+* enable workflow ([814f3e1](https://github.com/amurillog26/challenge-hiberus/commit/814f3e190496c6e9cc649e57270228ee394f2b56))
+* enable workflow ([5000541](https://github.com/amurillog26/challenge-hiberus/commit/500054156c96acaca618aee602c22a106f047ab1))
+* enable workflow ([a7d83e8](https://github.com/amurillog26/challenge-hiberus/commit/a7d83e8bcb1d8a24d593d6dddec38a1409b134ba))
+* **workflows:** chaneg npm version ([b8c437c](https://github.com/amurillog26/challenge-hiberus/commit/b8c437ce378972c956260716f45b9fe4a0c5a58d))
+* **workflows:** change npm to yarn in test ([de7feaf](https://github.com/amurillog26/challenge-hiberus/commit/de7feaf6c84177f6198c9440c6442afc43967266))
+* **workflows:** change npm to yarn in test ([6a3485d](https://github.com/amurillog26/challenge-hiberus/commit/6a3485de898b411898b7c9c31f88638b766eb60f))
+* **workflows:** change npm to yarn in test ([9437ff3](https://github.com/amurillog26/challenge-hiberus/commit/9437ff301b63d18e969266aa81a3b2e48ea00577))
+* **workflows:** change npm to yarn in test ([6e0d79f](https://github.com/amurillog26/challenge-hiberus/commit/6e0d79fbef3fc04ae23079e2431b228b6dd80e63))
+* **workflows:** change npm to yarn in test ([cf8af05](https://github.com/amurillog26/challenge-hiberus/commit/cf8af05be72a92462b4ba7cd526cafa1ff49e7f6))
+* **workflows:** enable dispatch ([edbf63a](https://github.com/amurillog26/challenge-hiberus/commit/edbf63a7fcd859e9ecd0b5ba4386f865d55354eb))
+* **workflows:** enable dispatch ([7ad8593](https://github.com/amurillog26/challenge-hiberus/commit/7ad8593bb09d92f6bf402fa3f23f5d1540b8e8a9))
+* **workflows:** enable dispatch ([931807e](https://github.com/amurillog26/challenge-hiberus/commit/931807e12c456c8d5c5f58042dea8c89a0843fe3))
+* **workflows:** enable dispatch ([a132bf4](https://github.com/amurillog26/challenge-hiberus/commit/a132bf4005bb99464749b3858141ff172d739057))
+* **workflows:** enable dispatch ([e5eefc1](https://github.com/amurillog26/challenge-hiberus/commit/e5eefc11f55d2f3a17017a0fb1a458e1d87035bc))
+* **workflows:** enable dispatch ([3f90fa5](https://github.com/amurillog26/challenge-hiberus/commit/3f90fa5586e945be78f32cb18a17fa86ac0a54b8))
+* **workflows:** enable dispatch ([6ffa335](https://github.com/amurillog26/challenge-hiberus/commit/6ffa3358c157ce677dd6a749a558eea738884a49))
+* **workflows:** enable dispatch ([2453c2c](https://github.com/amurillog26/challenge-hiberus/commit/2453c2ca9efa1d10839659d1f6e8703aebd38ef5))
+* **workflows:** enable workflow ([3a061fa](https://github.com/amurillog26/challenge-hiberus/commit/3a061faa455aa9b496f42e30074a6b4953fccdf5))
