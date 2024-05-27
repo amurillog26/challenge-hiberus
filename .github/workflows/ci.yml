@@ -68,14 +68,18 @@ jobs:
         run: |
           ls
           sed -i 's/tag: ".*"/tag: "${{ env.GIT_SHA }}"/' values.yaml
-
-      - name: Commit and push changes
-        # env:
-        #   GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-        run: |
-          cd challenge-hiberus-helm
           git config --global user.name ${{github.actor}}
           git config --global user.email ${{github.actor}}@users.noreply.github.com
           git add .
           git commit -m "Update image tag to ${{ env.GIT_SHA }}"
           git push
+      # - name: Commit and push changes
+      #   # env:
+      #   #   GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+      #   run: |
+      #     cd challenge-hiberus-helm
+      #     git config --global user.name ${{github.actor}}
+      #     git config --global user.email ${{github.actor}}@users.noreply.github.com
+      #     git add .
+      #     git commit -m "Update image tag to ${{ env.GIT_SHA }}"
+      #     git push
