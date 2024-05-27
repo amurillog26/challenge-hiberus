@@ -73,8 +73,8 @@ jobs:
           sed -i 's/tag: ".*"/tag: "${{ env.GIT_SHA }}"/' values.yaml
           git config --global user.name ${{github.actor}}
           git config --global user.email ${{github.actor}}@users.noreply.github.com
-          git add .
-          git commit -m "Update image tag to ${{ env.GIT_SHA }}"
+          git pull origin main
+          git add values.yaml
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
