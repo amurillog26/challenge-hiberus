@@ -11,6 +11,11 @@ on:
       - feature/*
   workflow_dispatch:
 
+permissions:
+  contents: write
+  issues: write
+  id-token: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
