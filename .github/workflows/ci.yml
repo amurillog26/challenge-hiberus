@@ -75,6 +75,7 @@ jobs:
           git config --global user.email ${{github.actor}}@users.noreply.github.com
           git pull origin main
           git add values.yaml
+          git commit -am "Update image tag to ${{ env.GIT_SHA }}"
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
@@ -82,7 +83,6 @@ jobs:
           branch: main
           repository: amurillog26/challenge-hiberus-helm
           directory: helm
-          commit_message: "Update image tag to ${{ env.GIT_SHA }}"
       # - name: Commit and push changes
       #   # env:
       #   #   GITHUB_TOKEN: ${{ secrets.GH_PAT }}
