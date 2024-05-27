@@ -79,7 +79,9 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          branch: main
+          directory: helm-charts
+          commit_message: "Update image tag to ${{ env.GIT_SHA }}"
       # - name: Commit and push changes
       #   # env:
       #   #   GITHUB_TOKEN: ${{ secrets.GH_PAT }}
