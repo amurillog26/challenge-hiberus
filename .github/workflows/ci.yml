@@ -39,6 +39,7 @@ jobs:
         run: yarn lint
 
   release:
+    needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
@@ -51,20 +52,14 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: yarn install
 
-      - name: Bypass Husky
-        run: git config core.hooksPath /dev/null
-
-      - name: Semantic Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
+      - name: Get Git Short Hash
+        id: vars
+        run: echo "GIT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
 
       - name: Build Docker image
         run: |
-          VERSION=$(npx semantic-release --dry-run | grep 'Next release version' | awk '{print $4}')
-          docker build -t my-docker-repo/myapp:$VERSION .
+          docker build -t my-docker-repo/myapp:${{ env.GIT_SHA }} .
           echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-          docker push my-docker-repo/myapp:$VERSION
+          docker push my-docker-repo/myapp:${{ env.GIT_SHA }}
