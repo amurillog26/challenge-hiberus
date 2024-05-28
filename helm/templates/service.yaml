@@ -8,4 +8,4 @@ spec:
     - port: {{ .Values.service.port }}
       targetPort: 3000
   selector:
-    app: myapp
+    app: {{ include "challenge-hiberus.fullname" . }}
