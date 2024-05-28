@@ -97,16 +97,24 @@ Commitlint asegura que los mensajes de commit sigan el estándar convencional. L
 ```
 project-root/
 ├── .husky/
-│   ├── commit-msg
-│   ├── pre-commit
-│   └── _/husky.sh
-├── node_modules/
+│ ├── commit-msg
+│ ├── pre-commit
+│ └── _/husky.sh
+├── helm/
+│ ├── template/
+|   ├── template/
+|     ├── _helpers.tpls
+|     ├── deployment.yaml
+|     ├── ingress.yaml
+|     ├── service.yaml
+| ├── chart.yaml
+│ └── values.yaml
 ├── src/
-│   ├── app.js
-│   └── database.js
+│ ├── app.js
+│ └── database.js
 ├── tests/
-│   ├── app.test.js
-│   └── db.mock.js
+│ ├── app.test.js
+│ └── db.mock.js
 ├── .eslintignore
 ├── .eslintrc.js
 ├── commitlint.config.js
