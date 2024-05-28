@@ -1,20 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: myapp
-  annotations:
-    {{- range $key, $value := .Values.ingress.annotations }}
-    {{ $key }}: {{ $value | quote }}
-    {{- end }}
+  name: {{ include "challenge-hiberus.fullname" . }}
+  labels:
+    {{- include "challenge-hiberus.labels" . | nindent 4 }}
 spec:
   rules:
-    - host: {{ .Values.ingress.hosts[0].host }}
+    - host: {{ .Values.ingress.host }}
       http:
         paths:
-          - path: {{ .Values.ingress.hosts[0].paths[0].path }}
-            pathType: {{ .Values.ingress.hosts[0].paths[0].pathType }}
+          - path: /
+            pathType: Prefix
             backend:
               service:
-                name: myapp
+                name: {{ include "challenge-hiberus.fullname" . }}
                 port:
-                  number: 80
+                  number: {{ .Values.service.port }}
