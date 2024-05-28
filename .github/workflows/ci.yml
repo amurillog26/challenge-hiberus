@@ -86,7 +86,7 @@ jobs:
       #     directory: helm
       - name: Commit and push changes
         run: |
-          cd helm-charts
+          cd helm
           git config --global user.name "amurillog26"
           git config --global user.email "arturo.murillo.garcia26@gmail.com"
           git pull https://${{ secrets.GIT_USERNAME }}:${{ secrets.GH_PAT }}@github.com/amurillog26/challenge-hiberus-helm.git main
