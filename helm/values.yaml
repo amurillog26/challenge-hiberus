@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: my-docker-repo/myapp
+  repository: amurillog/myapp
   pullPolicy: Always
   tag: "latest"
 
