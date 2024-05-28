@@ -4,7 +4,7 @@ import { config } from "dotenv";
 config();
 
 export const pool = createPool({
-  port: "3306",
+  port: "25060",
   host: process.env.MYSQLDB_HOST,
   user: process.env.MYSQLDB_USER,
   password: process.env.MYSQLDB_PASSWORD,
