@@ -84,7 +84,7 @@ jobs:
       #     branch: main
       #     repository: amurillog26/challenge-hiberus-helm
       #     directory: helm
-      - name: Commit and push changes
+      - name: Update tag
         run: |
           cd helm
           sed -i 's/tag: ".*"/tag: "${{ env.GIT_SHA }}"/' values.yaml
