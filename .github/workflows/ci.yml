@@ -89,6 +89,9 @@ jobs:
           cd helm
           sed -i 's/tag: ".*"/tag: "${{ env.GIT_SHA }}"/' values.yaml
 
+      - name: Bypass Husky
+        run: git config core.hooksPath /dev/null
+
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
