@@ -13,6 +13,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ include "challenge-hiberus.fullname" . }}
+                name: {{ .Values.service.name }}
                 port:
                   number: {{ .Values.service.port }}
