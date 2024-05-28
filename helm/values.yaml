@@ -1,9 +1,9 @@
 replicaCount: 1
 
 image:
-  repository: my-docker-repo/myapp
+  repository: amurillog/myapp
   pullPolicy: Always
-  tag: "1b08a38"
+  tag: "latest"
 
 service:
   name: myapp
@@ -24,3 +24,6 @@ resources:
   requests:
     cpu: 100m
     memory: 128Mi
+
+secrets:
+  name: mysql-secrets

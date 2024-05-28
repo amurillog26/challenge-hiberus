@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: {{ include "challenge-hiberus.fullname" . }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: myapp
+      app: {{ include "challenge-hiberus.fullname" . }}
   template:
     metadata:
       labels:
-        app: myapp
+        app: {{ include "challenge-hiberus.fullname" . }}
     spec:
       containers:
-        - name: myapp
+        - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: 3000
@@ -24,3 +24,24 @@ spec:
             requests:
               cpu: {{ .Values.resources.requests.cpu }}
               memory: {{ .Values.resources.requests.memory }}
+          env:
+            - name: MYSQLDB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secrets.name }}
+                  key: MYSQLDB_HOST
+            - name: MYSQLDB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secrets.name }}
+                  key: MYSQLDB_USER
+            - name: MYSQLDB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secrets.name }}
+                  key: MYSQLDB_PASSWORD
+            - name: MYSQLDB_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secrets.name }}
+                  key: MYSQLDB_DATABASE
