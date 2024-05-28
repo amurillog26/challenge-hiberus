@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: amurillog/myapp
   pullPolicy: Always
-  tag: "5402da4"
+  tag: "d8e2ffd"
 
 service:
   type: ClusterIP
