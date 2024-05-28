@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: amurillog/myapp
   pullPolicy: Always
-  tag: "d2101a8"
+  tag: "bfed975"
 
 service:
   name: myapp
